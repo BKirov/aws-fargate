@@ -16,7 +16,7 @@ def get_registry(pwd):
     )
 registry_info=accessToken.apply(get_registry_info)
 #ETO TUKA MI GURMI ..........
-image = docker.Image('my-image',
+image = docker.Image('bkirov-fargate,
     build='app',
     image_name=image_name,
     registry=registry_info,
