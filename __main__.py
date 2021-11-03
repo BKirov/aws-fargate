@@ -1,8 +1,36 @@
+import pulumi
 from pulumi import export, ResourceOptions
+import base64
 import pulumi_aws as aws
 import json
+import pulumi_docker as docker
+config = pulumi.Config()
+username = config.require('bkirov)
+password = config.require_secret('passsssss')
 
-#Създаваме ECS клъстер
+def get_registry(pwd):
+    return docker.ImageRegistry(
+        server='docker.io',
+        username=username,
+        password=password,
+    )
+registry_info=accessToken.apply(get_registry_info)
+#ETO TUKA MI GURMI ..........
+image = docker.Image('my-image',
+    build='app',
+    image_name=image_name,
+    registry=registry_info,
+)
+####ProblemS#############
+
+
+
+
+
+
+
+
+
 cluster = aws.ecs.Cluster('ECSClusterRRR')
 
 
